@@ -1,0 +1,51 @@
+Describe the use of following methods with example-
+a. executeQuery()
+b. executeUpdate()
+c. next()
+
+executeQuery() :This method is used to execute the sql statement which retrive some data from the database.
+		It returns a resultset object which contains the result returened by query.
+		It execute only SELECT statement.
+
+Example :
+	Statement stmt = conn.createStatement();
+	ResultSet rs = stmt.executeQuery("SELECT Lname FROM Customers WHERE Snum = 2001");
+
+
+
+executeUpdate() :This method is used to execute the sql statement which update or modify the database.
+		 It returns int value which represent the no. of rows affected by the query.
+		It execute non select statement like DML,DDL
+Example :
+	import java.sql.*;  
+	class InsertPrepared{  
+	public static void main(String args[]){  
+	try{  
+	Class.forName("oracle.jdbc.driver.OracleDriver");  
+  
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");  
+  
+	PreparedStatement stmt=con.prepareStatement("insert into Emp values(?,?)");  
+	stmt.setInt(1,101);
+	stmt.setString(2,"Ratan");  
+  
+	int i=stmt.executeUpdate();  
+	System.out.println(i+" records inserted");  
+  
+	con.close();  
+  
+	}catch(Exception e){ System.out.println(e);}  
+  
+	}
+
+
+next()   :next() can read the input only till the space.It can't read two words separated by space
+
+Example:  public static void main(String[] args) {
+    
+   	 Scanner sc = new Scanner(System.in);
+   	 int cases = sc.nextInt();
+   	 String []str = new String[cases];
+    	{
+       	 str[i]=sc.next();
+    	}

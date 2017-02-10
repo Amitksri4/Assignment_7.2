@@ -1,0 +1,25 @@
+1)forName Method used to register the driver.
+
+Public Static void forName(String className)throws ClassNotFoundException
+
+ 2)Create Connection Object with getConnection() Method
+
+public static Connection getConnection(String url)throws SQLException  
+
+3)Create Statement
+
+public Statement createStatement()throws SQLException  
+Statement stmt=con.createStatement();  
+
+4)Execute the Query
+
+ResultSet rs=stmt.executeQuery("select * from emp");  
+  
+while(rs.next()){  
+System.out.println(rs.getInt(1)+" "+rs.getString(2));  
+}  
+
+5)Close connection 
+
+
+con.close();  
